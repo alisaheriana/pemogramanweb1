@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program JavaScript dengan Fasilitas Dialog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        input {
+            margin: 5px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Program JavaScript dengan Fasilitas Dialog dan Formulir</h2>
+
+    <button onclick="tampilkanAlert()">Tampilkan Pesan</button>
+
+    <button onclick="tampilkanPrompt()">Tampilkan Prompt</button>
+
+    <button onclick="tampilkanConfirm()">Tampilkan Confirm</button>
+
+    <form id="myForm" onsubmit="return prosesForm()">
+        <label for="username">Username:</label>
+        <input type="text" id="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" required>
+
+        <button type="submit">Login</button>
+    </form>
+
+    <script>
+        
+        function tampilkanAlert() {
+            alert("Ini adalah pesan alert!");
+        }
+
+        
+        function tampilkanPrompt() {
+            var hobi = prompt("Apa hobi Anda?");
+            if (hobi) {
+                alert("Hobi Anda adalah: " + hobi);
+            } else {
+                alert("Anda tidak memasukkan hobi.");
+            }
+        }
+
+        function tampilkanConfirm() {
+            var konfirmasi = confirm("Apakah Anda yakin ingin melanjutkan?");
+            if (konfirmasi) {
+                alert("Anda memilih untuk melanjutkan.");
+            } else {
+                alert("Anda memilih untuk membatalkan.");
+            }
+        }
+        function prosesForm() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            if (username && password) {
+                alert("Login berhasil!\n\nUsername: " + username + "\nPassword: " + password);
+            } else {
+                alert("Harap lengkapi formulir.");
+            }
+            return false;
+        }
+    </script>
+
+</body>
+</html>
